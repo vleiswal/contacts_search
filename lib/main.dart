@@ -45,6 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (await ContactsService.getContacts(withThumbnails: false)).toList();
 
     setState(() {
+      //print(_contacts.length);
       contacts = _contacts;
     });
   }
@@ -66,11 +67,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     itemCount: contacts.length,
                     itemBuilder: (context, index) {
                       Contact contact = contacts[index];
-
-                      return ListTile(
-                        title: Text(contact.displayName),
-                        subtitle: Text(contact.phones.elementAt(0).value),
-                      );
+                      (contact != null)
+                          ? ListTile(
+                              title: Text(contact.displayName),
+                              subtitle: Text(contact.phones.elementAt(0).value),
+                            )
+                          : CircularProgressIndicator();
                     },
                   ),
           ],
