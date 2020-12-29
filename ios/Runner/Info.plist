@@ -12,6 +12,8 @@
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>contacts_search</string>
+	<key>NSContactsUsageDescription</key>  
+	<string>This app requires contacts access to function properly.</string> 
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
