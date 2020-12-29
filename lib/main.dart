@@ -59,16 +59,20 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: EdgeInsets.all(20),
         child: Column(
           children: <Widget>[
-            ListView.builder(
-                shrinkWrap: true,
-                itemCount: contacts.length,
-                itemBuilder: (context, index) {
-                  Contact contact = contacts[index];
-                  return ListTile(
-                    title: Text(contact.displayName),
-                    subtitle: Text(contact.phones.elementAt(0).value),
-                  );
-                })
+            contacts.length == null
+                ? CircularProgressIndicator()
+                : ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: contacts.length,
+                    itemBuilder: (context, index) {
+                      Contact contact = contacts[index];
+
+                      return ListTile(
+                        title: Text(contact.displayName),
+                        subtitle: Text(contact.phones.elementAt(0).value),
+                      );
+                    },
+                  ),
           ],
         ),
       ),
